@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+$primary-color: #cdc197;
+$second-color: #efebdb;
+$white-color: #FFFFFF;
+$black-color: #0B0B0B;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Nunito", sans-serif;
+}
+
+.app-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@import './variables';
+@import './header';
+@import './form';
+
+@import './admin/header';
+@import './admin/create';
+@import './admin/read';
+@import './Rooms.scss';
+@import './footer';
+@import './home';

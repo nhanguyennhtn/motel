@@ -1,0 +1,41 @@
+.home-wrapper {
+
+    .separate {
+        height: 4px;
+        background: #cdc197;
+        margin: 40px 0;
+        border-radius: 4px;
+    }
+
+    .home-title {
+        background: #cdc197;
+        margin-top: 16px;
+        text-align: center;
+        text-transform: uppercase;
+
+        span {
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: bold;
+            border-bottom: 4px solid #6f6247;
+        }
+    }
+
+    .home-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: #efebdb;
+        padding: 0 16px;
+
+        i {
+            font-size: 44px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 88%;
+            height: 480px;
+        }
+    }
+}
