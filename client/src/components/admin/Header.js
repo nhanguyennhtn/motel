@@ -16,7 +16,8 @@ export default function Header() {
             <nav>
                 <NavLink to='/admin/'>Trang chủ</NavLink>
                 <NavLink to='/admin/room'>Phòng trọ</NavLink>
-                <NavLink to='/admin/dichvu'>Dịch vụ</NavLink>
+                <NavLink to='/admin/services'>Dịch vụ</NavLink>
+                <NavLink to='/admin/contacts'>Phản hồi</NavLink>
             </nav>
             <button className="user" onClick={logout}>
                 {userInfo.username}

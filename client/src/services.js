@@ -48,4 +48,34 @@ export const apiContractUpdate = data =>
 
 export const apiContractDelete = id =>
     service.delete('/api/contract/delete/' + id)
+// bill
+export const apiBilltRead = () =>
+    service.get('/api/bill/read')
+
+export const apiBillCreate = data =>
+    service.post('/api/bill/create', data)
+
+export const apiBilltUpdate = data =>
+    service.put(`/api/bill/update/${data._id}`, data)
+
+export const apiBillDelete = id =>
+    service.delete('/api/bill/delete/' + id)
+// price
+export const apiPricetRead = () =>
+    service.get('/api/price/read')
+
+export const apiPriceCreate = data =>
+    service.post('/api/price/create', data)
+
+export const apiPriceDelete = id =>
+    service.delete('/api/price/delete/' + id)
+// price
+export const apiContactRead = () =>
+    service.get('/api/contact/read')
+
+export const apiContactCreate = data =>
+    service.post('/api/contact/create', data)
+
+export const apiContactDelete = id =>
+    service.delete('/api/contact/delete/' + id)
 

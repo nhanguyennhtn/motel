@@ -1,0 +1,33 @@
+.user-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    .form-container {
+        flex: 88%;
+        max-width: 88%;
+        .item {
+            margin: 16px 10px;
+            border: 1px solid #dedede;
+            .title {
+                font-weight: bold;
+                font-size: 26px;
+                text-transform: uppercase;
+                margin: 10px 16px;
+                text-align: center;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
+            }
+            .user-address {
+                text-align: center;
+                font-size: 12px;
+                line-height: 10x;
+                margin: 10px;
+            }
+            // .user-name {
+                
+            // }
+        }
+    }
+}

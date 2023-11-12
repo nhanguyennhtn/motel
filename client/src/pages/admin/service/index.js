@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { apiRoomRead } from '../services'
+import { Link, useLocation } from 'react-router-dom'
+import { apiRoomRead, apiRoomUpdate } from '../../../services'
 
-function Rooms({ isHome }) {
+function Rooms() {
     const [rooms, setRooms] = useState([])
-
+    const room = useLocation().state
+    
     useEffect(() => {
         fetchData()
     }, [])
@@ -14,17 +15,26 @@ function Rooms({ isHome }) {
         setRooms(res.rooms)
     }
 
+    async function handleSubmit() {
+        try {
+            const res = await apiRoomUpdate({ ...room, isOrdered : false})
+            alert('huy thanh cong')
+            console.log(res);
+        } catch (e) {
+        }
+    }
+
     return (
         <div className="movies-wrapper">
             {rooms && rooms.map(item => {
-                if (item.isOrdered === true) {
+                if (item.isOrdered !== false) {
                     return <div key={item._id} className="item-wrapper">
                         <div className="item">
                             <div className="img">
                                 <img src={item.anh} alt="" />
                                 <div className="coating">
                                     <div className="feature">
-                                        <Link to={`/room/${item._id}`} state={item}>Xem thêm</Link>
+                                        <Link to={`/room/${item._id}`} state={item}>Phòng đã đặt</Link>
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +44,7 @@ function Rooms({ isHome }) {
                             </div>
                             <div className="desc">
                                 <span>{item.gia} đồng</span>
-                                | <button><Link to={'/bill'} state={item}>Đặt Phòng</Link></button>
+                                | <button onClick={handleSubmit}>Hủy Đặt Phòng</button>
                             </div>
                         </div>
                     </div>

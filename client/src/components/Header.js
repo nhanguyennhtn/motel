@@ -1,12 +1,12 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link , useLocation} from 'react-router-dom'
 import { logoHeader } from '../assets/img/logo.js'
 
 export default function Header() {
-    // const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'))
-    // const userInfo = JSON.parse(localStorage.getItem('userInfo'))
     const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'))
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    const user = useLocation().state
+    console.log(user);
 
     const logout = () => {
         localStorage.removeItem('isLoggedIn')
@@ -53,7 +53,7 @@ export default function Header() {
                                         {userInfo && userInfo.username}
                                         <div className='user-action'>
                                             <div className='item'>
-                                                <Link to='/profile'>Tài khoản</Link>
+                                                <Link to='/profile/' state= {user}>Tài khoản</Link>
                                             </div>
                                             {userInfo && userInfo.role === 1 &&
                                                 <Link to='/admin/' className='item'>Quản lý</Link>

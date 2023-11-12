@@ -1,0 +1,46 @@
+.bill-wrapper {
+    background: #efebdb;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .item-waper {
+        width: 460px;
+        background: #fff;
+        border-radius: 10px;
+
+        form {
+            padding: 60px 40px;
+
+            .title-bill{
+                font-size: 36px;
+                color: #767336;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .conent-bill {
+                display: block;
+                width: 100%;
+                padding: 14px 24px;
+                font-size: 18px;
+                color: #888;
+                margin-bottom: 10px;
+                border: 2px solid #efebdb;
+                border-radius: 10px;
+                outline-color: #dbc589;
+            }
+
+            .item-wrapper button {
+                font-size: 20px;
+                margin-top: 10px;
+                width: 100%;
+                padding: 20px;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+                background: #efebdb;
+            }
+        }
+    }
+}

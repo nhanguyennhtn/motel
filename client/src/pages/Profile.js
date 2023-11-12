@@ -1,20 +1,33 @@
 import React from 'react'
-import { useLocation} from 'react-router-dom'
+// import { useLocation} from 'react-router-dom'
 
 export default function RegisterPage() {
-    const user = useLocation().state
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    // const room = useLocation().state
+    console.log(userInfo);
 
     return (
-        <div className="form-wrapper">
+        <div className="user-wrapper">
             <div className="form-container">
-                <div>
-                    <h1>Danh sách người dùng</h1>
-                    <ul>
-                        <li key={user._id}>
-                            <p>Tên: {user.name}</p>
-                            <p>Email: {user.email}</p>
-                        </li>
-                    </ul>
+                <div className='item'>
+                    <div className='title'>
+                    Thông tin accout
+                    </div>
+                    <div className='user-address'>
+                    {userInfo._id}
+                    </div>
+                    <div className='user-name'>
+                    Họ và Tên: {userInfo.fullname}
+                    </div>
+                    <div className='user-name'>
+                    Tên tài Khoản: {userInfo.username}
+                    </div>
+                    <div className='user-pass'>
+                    {/* {room.sopnhong} */}
+                    </div>
+                    <div className='user-email'>
+                    Email: {userInfo.email}
+                    </div>  
                 </div>
             </div>
         </div >

@@ -47,9 +47,11 @@
                     font-weight: $font-weight-bold;
                     font-size: $small-text;
                     padding: 5px 0;
-                    border-radius: $border-small-radius;
-                    background: $primary-color;
+                    border-radius: $border-small-radius ;
+                    border: 1px solid $second-color;
+                    background: $second-color;
                     color: $white-color;
+                    
                 }
             }
 

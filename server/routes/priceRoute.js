@@ -9,7 +9,7 @@ const contactRoute = app => {
     router.post('/create', contactController.handleCreate)
     router.delete('/delete/:id', contactController.handleDelete)
 
-    return app.use('/api/contact', router)
+    return app.use('/api/price', router)
 }
 
 module.exports = contactRoute
