@@ -5,6 +5,8 @@
     .form-container {
         flex: 88%;
         max-width: 88%;
+        background-color: #dedede;
+        border-radius: 3px;
         .item {
             margin: 16px 10px;
             border: 1px solid #dedede;
@@ -21,13 +23,26 @@
             }
             .user-address {
                 text-align: center;
-                font-size: 12px;
+                font-size: 14px;
                 line-height: 10x;
                 margin: 10px;
+                text-decoration: underline;
             }
-            // .user-name {
-                
-            // }
+            .user-name{
+                padding: 4px 20px;
+                text-align: center;
+                margin-left: -16%;
+            }
+            .user-account{
+                padding: 4px 20px;
+                text-align: center;
+                margin-left:-120px;
+            }
+            .user-email{
+                padding: 4px 20px;
+                text-align: center;
+                margin-left: -85px;
+            }
         }
     }
 }

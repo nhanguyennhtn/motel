@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import ReactQuill from 'react-quill';
 import { apiRoomRead, apiRoomDelete } from '../../../services'
 
 export default function Read() {
@@ -46,7 +47,7 @@ export default function Read() {
                                 <img src={item.anh} alt='' />
                             </td>
                             <td>{item.kichthuoc}</td>
-                            <td>{item.mota}</td>
+                            <td><ReactQuill value={item.mota} readOnly={true} theme="bubble" /></td>
                             <td>{item.gia}</td>
                             <td>
                                 <Link to='/admin/room/update' state={item}>

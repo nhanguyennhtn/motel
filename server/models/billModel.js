@@ -11,7 +11,8 @@ const Bill = new Schema({
     email: { type: mongoose.Schema.Types.String, ref: "User" },
     sophong: { type: mongoose.Schema.Types.String, ref: "Room" },
     gia: { type: mongoose.Schema.Types.String, ref: "Room" },
-    ngaylap: { type: String }
+    phuongthuc:{type: String},
+    ngay: { type: String }
 }, {
     timestamps: true
 })

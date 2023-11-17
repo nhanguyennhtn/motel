@@ -7,7 +7,7 @@ export default function LoginPage() {
     const { register, handleSubmit } = useForm()
     const [errMessage, setErrMessage] = useState()
 
-    const onSubmit = async data => {
+    const onSubmit = async (data) => {
         try {
             const res = await apiUserLogin(data)
             if (res && res.status === true) {

@@ -45,9 +45,6 @@ export default function Home() {
             <p>Các phòng trọ</p>
             <Rooms isHome={true} />
             <div className='separate'></div>
-            {/* Danh sách rạp ở trang chủ thì hiện 3 phim */}
-            {/* <Theaters isHome={true} />
-            <div className='separate'></div> */}
         </div>
     )
 }

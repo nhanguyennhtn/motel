@@ -17,7 +17,7 @@ function Rooms({ isHome }) {
     return (
         <div className="movies-wrapper">
             {rooms && rooms.map(item => {
-                if (item.isOrdered === true) {
+                if (!item.isOrdered) {
                     return <div key={item._id} className="item-wrapper">
                         <div className="item">
                             <div className="img">
@@ -39,6 +39,7 @@ function Rooms({ isHome }) {
                         </div>
                     </div>
                 }
+                return ''
             })}
         </div>
     );

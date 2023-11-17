@@ -3,10 +3,12 @@ const billModel = require('../models/billModel')
 const billController = {
     handleRead: (req, res, next) => {
         billModel.find()
-            .then(contacts => res.status(400).json({ contacts }))
+            .then(bills => res.status(400).json({ bills }))
             .catch(next)
     },
     handleCreate: (req, res, next) => {
+
+        console.log(req.body);
         const billNew = new billModel(req.body)
         billNew.save()
             .then(() => res.status(400).json({ Bill: billNew }))
@@ -20,7 +22,7 @@ const billController = {
             })
 
         billModel.deleteOne({ _id })
-            .then(contact => res.status(400).json({ contact }))
+            .then(bill => res.status(400).json({ bill }))
             .catch(next)
     }
 }

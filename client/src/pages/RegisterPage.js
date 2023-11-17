@@ -14,6 +14,7 @@ export default function RegisterPage() {
             if (res && res.status === true) {
                 setMessage(res.success)
             }
+            alert('Đăng ký tài khoản thành công ')
         } catch (e) {
             setMessage(e.errMessage)
         }

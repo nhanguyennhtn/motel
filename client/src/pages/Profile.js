@@ -1,35 +1,49 @@
-import React from 'react'
-// import { useLocation} from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { apiBilltRead } from '../services'
 
-export default function RegisterPage() {
+export default function ProfilePage() {
+    const [bills, setBill] = useState([])
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
-    // const room = useLocation().state
     console.log(userInfo);
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async () => {
+        const res = await apiBilltRead()
+        setBill(res.bills)
+    }
 
     return (
         <div className="user-wrapper">
+            {bills && bills.map(item => {
+                if (item.name === userInfo.username) {
+                    <div className='user-pass'>
+                        {item.sopnhong}
+                    </div>
+                } return ''
+            })}
             <div className="form-container">
                 <div className='item'>
                     <div className='title'>
-                    Thông tin accout
+                        Thông tin accout
                     </div>
                     <div className='user-address'>
-                    {userInfo._id}
+                        Địa chỉ IP: {userInfo._id}
                     </div>
                     <div className='user-name'>
-                    Họ và Tên: {userInfo.fullname}
+                        Họ và Tên: {userInfo.fullname}
                     </div>
-                    <div className='user-name'>
-                    Tên tài Khoản: {userInfo.username}
-                    </div>
-                    <div className='user-pass'>
-                    {/* {room.sopnhong} */}
+                    <div className='user-account'>
+                        Tên tài Khoản: {userInfo.username}
                     </div>
                     <div className='user-email'>
-                    Email: {userInfo.email}
-                    </div>  
+                        Email: {userInfo.email}
+                    </div>
                 </div>
             </div>
+
         </div >
     )
 }
