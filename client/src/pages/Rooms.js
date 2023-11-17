@@ -34,7 +34,7 @@ function Rooms({ isHome }) {
                             </div>
                             <div className="desc">
                                 <span>{item.gia} đồng</span>
-                                | <button><Link to={'/bill'} state={item}>Đặt Phòng</Link></button>
+                                | <button><Link to={'/bill/create'} state={item}>Đặt Phòng</Link></button>
                             </div>
                         </div>
                     </div>

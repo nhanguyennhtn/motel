@@ -3,20 +3,20 @@ const priceMotel = require('../models/priceMotel')
 const priceController = {
     handleRead: (req, res, next) => {
         priceMotel.find()
-            .then(prices => res.status(400).json({ prices }))
+            .then(prices => res.status(200).json({ prices }))
             .catch(next)
     },
     handleCreate: (req, res, next) => {
 
         const priceNew = new priceMotel(req.body)
         priceNew.save()
-            .then(() => res.status(400).json({ Price: priceNew }))
+            .then(() => res.status(200).json({ Price: priceNew }))
             .catch(next)
     },
     handleUpdete: (req, res, next) => {
         const _id = req.params._id
         priceMotel.updateOne({ _id }, res.body)
-            .then(price => res.status(400).json({ price }))
+            .then(price => res.status(200).json({ price }))
             .catch(next)
     },
     handleDelete: (req, res, next) => {
@@ -27,7 +27,7 @@ const priceController = {
             })
 
         priceMotel.delete({ _id })
-            .then(price => res.status(400).json({ price }))
+            .then(price => res.status(200).json({ price }))
             .catch(next)
     }
     

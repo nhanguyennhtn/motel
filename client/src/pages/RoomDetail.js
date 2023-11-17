@@ -20,7 +20,7 @@ function Rooms() {
                     </div>
                     <div className='price'>
                         {room.gia} đồng <br />
-                        <button><Link to={'/bill'} state={room}>Đặt Phòng</Link></button>
+                        <button><Link to={'/bill/create'} state={room}>Đặt Phòng</Link></button>
 
                     </div>
 

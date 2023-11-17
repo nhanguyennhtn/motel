@@ -3,20 +3,20 @@ const contactModel = require('../models/contactModel')
 const contactController = {
     handleRead: (req, res, next) => {
         contactModel.find()
-            .then(contacts => res.status(400).json({ contacts }))
+            .then(contacts => res.status(200).json({ contacts }))
             .catch(next)
     },
     handleCreate: (req, res, next) => {
 
         const contactNew = new contactModel(req.body)
         contactNew.save()
-            .then(() => res.status(400).json({ Contact: contactNew }))
+            .then(() => res.status(200).json({ Contact: contactNew }))
             .catch(next)
     },
     handleUpdete: (req, res, next) => {
         const _id = req.params._id
         contactModel.updateOne({ _id }, res.body)
-            .then(contact => res.status(400).json({ contact }))
+            .then(contact => res.status(200).json({ contact }))
             .catch(next)
     },
     handleDelete: (req, res, next) => {
@@ -27,7 +27,7 @@ const contactController = {
             })
 
         contactModel.delete({ _id })
-            .then(contact => res.status(400).json({ contact }))
+            .then(contact => res.status(200).json({ contact }))
             .catch(next)
     }
 

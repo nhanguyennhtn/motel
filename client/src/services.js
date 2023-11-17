@@ -16,7 +16,7 @@ export const apiUserRegister = data =>
 export const apiUserLogin = data =>
     service.post('/api/user/login', data)
 
-    export const apiUserReadOne = id =>
+export const apiUserReadOne = id =>
     service.get('/api/user/profile/' + id)
 
 //room
@@ -54,10 +54,6 @@ export const apiBilltRead = () =>
 
 export const apiBillCreate = data =>
     service.post('/api/bill/create', data)
-
-export const apiBilltUpdate = data =>
-    service.put(`/api/bill/update/${data._id}`, data)
-
 export const apiBillDelete = id =>
     service.delete('/api/bill/delete/' + id)
 // price

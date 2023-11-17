@@ -7,6 +7,7 @@ import RoomCreate from './pages/admin/room/Create'
 import RoomUpdate from './pages/admin/room/Update'
 import Service from './pages/admin/service'
 import Contatct from './pages/admin/contact'
+import Bills from './pages/bills/BillRead'
 import Layout from './components/admin/Layout'
 
 export default function Admin() {
@@ -18,8 +19,9 @@ export default function Admin() {
                     <Route path='/' element={<AdminPage />} />
                     <Route path='/room/' element={<RoomRead />} />
                     <Route path='/contacts/' element={<Contatct />} />
-                    <Route path='/room/create' element={<RoomCreate />} />
+                    <Route path='/bills/' element={<Bills />} />
                     <Route path='/services' element={<Service />} />
+                    <Route path='/room/create' element={<RoomCreate />} />
                     <Route path='/room/update' element={<RoomUpdate />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>

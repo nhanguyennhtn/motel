@@ -4,7 +4,7 @@ import Layout from './components/Layout'
 import NotFound from './pages/NotFound'
 import HomePage from './pages'
 import Rooms from './pages/Rooms'
-import Bill from './pages/Bill'
+import BillCreate from './pages/bills/BillCreate'
 import Profile from './pages/Profile'
 import RoomDetail from './pages/RoomDetail'
 
@@ -16,7 +16,7 @@ function App() {
         <Route path='/room' element={<Rooms />} />
         <Route path='/room/:id' element={<RoomDetail />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/bill' element={<Bill />} />
+        <Route path='/bill/create' element={<BillCreate />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Layout>

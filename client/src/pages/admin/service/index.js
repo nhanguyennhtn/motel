@@ -17,7 +17,7 @@ function Rooms() {
 
     const handleSubmit = async (item) => {
         await apiRoomUpdate({ ...item, isOrdered: false })
-        alert('huy thanh cong')
+        alert('Đã hủy đặt phòng thành công')
         fetchData()
 
     }
