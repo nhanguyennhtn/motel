@@ -88,12 +88,7 @@ export default function Header() {
                     </NavLink>
                 </div>
                 <div className='item'>
-                    <NavLink to='/dichvu'>
-                        Dịch vụ
-                    </NavLink>
-                </div>
-                <div className='item'>
-                    <NavLink to='/help'>
+                    <NavLink to='/contact/create'>
                         Liên Hệ
                     </NavLink>
                 </div>

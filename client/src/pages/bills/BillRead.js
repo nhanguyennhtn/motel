@@ -2,17 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { apiBilltRead, apiBillDelete } from '../../services'
 
 function Bills() {
-    const [bills, setBills] = useState([])
-    const [data, setData] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
+        const [bills, setBills] = useState([])
+        const [searchTerm, setSearchTerm] = useState('');
 
-    const handleSearch = (searchValue) => {
-        const value = searchValue.toString();
-        const filteredData = bills.filter((item) => { item.fullname.toLowerCase().includes(value.toLowerCase()) }
-        );
-        setSearchTerm(value);
-        setData(filteredData);
-    };
     useEffect(() => {
         fetchData()
     }, [])
@@ -33,12 +25,7 @@ function Bills() {
 
     return (
         <div className='read'>
-            <input
-                type="text"
-                placeholder="Tìm kiếm..."
-                value={searchTerm}
-                onChange={(e) => handleSearch(e.target.value)}
-            />
+                <input id='search' onChange={e => setSearchTerm(e.target.value)} placeholder="Tìm kiếm theo tên..." />
             <table >
                 <thead>
                     <tr>
@@ -48,12 +35,14 @@ function Bills() {
                         <th>email</th>
                         <th>Số Phòng</th>
                         <th>giá</th>
-                        <th>ngày</th>
+                        <th>ngày đặt</th>
                         <th>Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {bills.length > 0 ? bills.map((item, index) =>
+                    {bills.length > 0 ? bills.filter((item)=> {
+                        return searchTerm.toLowerCase() === ''? item : item.fullname.toLowerCase().includes(searchTerm)
+                    }).map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
                             <td>{item.fullname}</td>

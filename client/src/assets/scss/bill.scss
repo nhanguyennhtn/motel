@@ -9,16 +9,16 @@
         background: #fff;
         border-radius: 10px;
 
-        .form {
+        form {
             padding: 60px 40px;
 
             .title-bill{
-                font-size: 36px;
+                font-size: 26px;
                 color: #767336;
                 text-align: center;
                 margin-bottom: 20px;
             }
-
+            
             .conent-bill {
                 display: block;
                 width: 100%;
@@ -29,6 +29,21 @@
                 border: 2px solid #efebdb;
                 border-radius: 10px;
                 outline-color: #dbc589;
+
+            }
+            .select-bill #select{
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                padding: 14px 24px;
+                font-size: 18px;
+                border: 2px solid ;
+            }
+
+            input {
+                padding: 14px 24px;
+                width: 100%;
+                margin-bottom:10px;
             }
 
             .item-wrapper button {

@@ -14,20 +14,22 @@ const contactController = {
             .catch(next)
     },
     handleUpdete: (req, res, next) => {
-        const _id = req.params._id
-        contactModel.updateOne({ _id }, res.body)
+        const id = req.params.id
+        contactModel.updateOne({ id }, res.body)
             .then(contact => res.status(200).json({ contact }))
             .catch(next)
     },
     handleDelete: (req, res, next) => {
-        const _id = req.params._id
+        const _id = req.params.id
         if (!_id)
-            return res.status(400).json({
-                message: 'Địa chỉ người dùng không chính xác, không thể xóa'
+            return res.status(500).json({
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
-        contactModel.delete({ _id })
-            .then(contact => res.status(200).json({ contact }))
+            contactModel.deleteOne({ _id })
+            .then(contact => res.status(200).json({
+                contact
+            }))
             .catch(next)
     }
 

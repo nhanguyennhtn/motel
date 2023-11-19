@@ -20,6 +20,10 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/api/user/profile/652bb149498eb2e05dd7d11c
 ###
+get http://localhost:5000/api/contact/read
+###
+DELETE http://localhost:5000/api/contact/delete/65586323e625dade0f2a9148
+###
 POST http://localhost:5000/api/room/create
 Content-Type: application/json
 

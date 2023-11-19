@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { apiContactDelete, apiContactRead, apiContractCreate } from '../../../services'
+import { apiContactDelete, apiContactRead} from '../../../services'
 
 function Contacts() {
     const [contacts, setContacts] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
     
     useEffect(() => {
         fetchData()
@@ -13,16 +13,18 @@ function Contacts() {
         const res = await apiContactRead()
         setContacts(res.contacts)
     }
+
     const deleteContact = async id => {
         if (window.confirm("Would you like to remove?")) {
             await apiContactDelete(id)
+            console.log(id, 'lllllllllll');
             fetchData()
         }
     }
 
     return (
         <div className='read'>
-            <Link to='/admin/room/create'>Create</Link>
+            <input id='search' onChange={e => setSearchTerm(e.target.value)} placeholder="Tìm kiếm theo sophong..." />
             <table>
                 <thead>
                     <tr>
@@ -31,13 +33,16 @@ function Contacts() {
                         <th>Phòng Số</th>
                         <th>mess</th>
                         <th>ngày lập</th>
+                        <th>Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {contacts.length > 0 ? contacts.map((item, index) =>
+                    {contacts.length > 0 ? contacts.filter((item)=> {
+                        return searchTerm.toLowerCase() === ''? item : item.sophong.toLowerCase().includes(searchTerm)
+                    }).map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
-                            <td>{item.username}</td>
+                            <td>{item.name}</td>
                             <td>{item.sophong}</td>
                             <td>{item.mess}</td>
                             <td>{item.ngay}</td>
