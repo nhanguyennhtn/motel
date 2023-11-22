@@ -32,14 +32,16 @@ export default function ProfilePage() {
                     <div className='user-address'>
                         Địa chỉ IP: {userInfo._id}
                     </div>
-                    <div className='user-name'>
-                        Họ và Tên: {userInfo.fullname}
-                    </div>
-                    <div className='user-account'>
-                        Tên tài Khoản: {userInfo.username}
-                    </div>
-                    <div className='user-email'>
-                        Email: {userInfo.email}
+                    <div className='item-wapper'>
+                        <div className='user-name'>
+                            Họ và Tên: {userInfo.fullname}
+                        </div>
+                        <div className='user-account'>
+                            Tên tài Khoản: {userInfo.username}
+                        </div>
+                        <div className='user-email'>
+                            Email: {userInfo.email}
+                        </div>
                     </div>
                 </div>
             </div>

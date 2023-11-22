@@ -79,4 +79,34 @@
         object-fit: cover;
         border: 2px solid $black-color;
     }
+    .btn-table-page{
+        display: flex;
+        width: 100%;
+        justify-content: right;
+        padding: 4px 2px;
+        button {
+            cursor: pointer;
+        }
+        button:hover{
+            opacity: 33.5%;
+        }
+        ul{
+            display: flex;
+            li{
+                list-style-type: none;
+                margin: 0px 2px;
+                
+                button {
+                    height: 100%;  
+                    padding: 4px 6px;
+                    cursor: pointer;
+
+                }
+
+                button:hover {
+                    opacity: 33.5%;
+                }
+            }
+        }
+    }
 }

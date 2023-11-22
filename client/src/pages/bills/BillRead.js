@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { apiBilltRead, apiBillDelete } from '../../services'
 
 function Bills() {
-        const [bills, setBills] = useState([])
-        const [searchTerm, setSearchTerm] = useState('');
+    const [bills, setBills] = useState([])
+    const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1)
+    const [rowsPerPage] = useState(10)
 
     useEffect(() => {
         fetchData()
@@ -14,6 +16,7 @@ function Bills() {
         setBills(res.bills)
     }
 
+
     const deleteBill = async id => {
         console.log(id);
         if (window.confirm("Khi xóa sẽ không khôi phục được, bạn chắc chắn?")) {
@@ -23,9 +26,34 @@ function Bills() {
         }
     }
 
+    const totalTablePages = Math.ceil(bills.length / rowsPerPage)
+    const pages = [];
+    for (let i = 1; i <= totalTablePages; i++) {
+        pages.push(i);
+    }
+    const goToPage = (page) => {
+        setCurrentPage(page);
+    };
+    const currentRows = () => {
+        const startIndex = (currentPage - 1) * rowsPerPage;
+        const endIndex = startIndex + rowsPerPage;
+        const lastBills = bills.slice(startIndex, endIndex);
+        return lastBills
+    };
+    const nextPage = () => {
+        if (currentPage < totalTablePages) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
+    const prevtPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
     return (
         <div className='read'>
-                <input id='search' onChange={e => setSearchTerm(e.target.value)} placeholder="Tìm kiếm theo tên..." />
+            <input id='search' onChange={e => setSearchTerm(e.target.value)} placeholder="Tìm kiếm theo tên..." />
             <table >
                 <thead>
                     <tr>
@@ -40,8 +68,8 @@ function Bills() {
                     </tr>
                 </thead>
                 <tbody>
-                    {bills.length > 0 ? bills.filter((item)=> {
-                        return searchTerm.toLowerCase() === ''? item : item.fullname.toLowerCase().includes(searchTerm)
+                    {currentRows().length > 0 ? currentRows().filter((item) => {
+                        return searchTerm.toLowerCase() === '' ? item : item.fullname.toLowerCase().includes(searchTerm)
                     }).map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
@@ -64,6 +92,18 @@ function Bills() {
                     }
                 </tbody>
             </table>
+            <div className='btn-table-page'>
+                <button onClick={prevtPage} disabled={currentPage === 1}> Prev </button>
+                <ul>
+                    {pages.map((page) => (
+                        <li key={page}>
+                            <button onClick={() => goToPage(page)}>{page}</button>
+                        </li>
+                    ))}
+                </ul>
+                <button onClick={nextPage} disabled={currentPage === totalTablePages}> Next </button>
+            </div>
+
         </div>
     );
 }

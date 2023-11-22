@@ -13,6 +13,7 @@ export default function RegisterPage() {
             const res = await apiUserRegister(data)
             if (res && res.status === true) {
                 setMessage(res.success)
+                window.location.href = '/login'
             }
             alert('Đăng ký tài khoản thành công ')
         } catch (e) {
@@ -29,7 +30,7 @@ export default function RegisterPage() {
                     </div>
                     <input required placeholder="Fullname" autoComplete="off" {...register('fullname', { required: true })} />
                     <input required placeholder="Username" autoComplete="off" {...register('username', { required: true })} />
-                    <input required placeholder="Password" autoComplete="off" {...register('password', { required: true })} />
+                    <input required type='password' placeholder="Password" autoComplete="off" {...register('password', { required: true })} />
                     <input required placeholder="Email" autoComplete="off" {...register('email', { required: true })} />
                     <input required placeholder="Role" autoComplete="off" {...register('role', { required: true })} />
                     <button>
