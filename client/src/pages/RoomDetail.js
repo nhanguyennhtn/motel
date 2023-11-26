@@ -19,7 +19,7 @@ function Rooms() {
                         <ReactQuill value={room.mota} readOnly={true} theme="bubble" />
                     </div>
                     <div className='price'>
-                        {room.gia} đồng <br />
+                    {Intl.NumberFormat('vi-VN').format(room.gia)} vnđ<br />
                         <button><Link to={'/bill/create'} state={room}>Đặt Phòng</Link></button>
 
                     </div>

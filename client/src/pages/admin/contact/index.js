@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { apiContactDelete, apiContactRead} from '../../../services'
+import ReactQuill from 'react-quill';
+import { apiContactDelete, apiContactRead } from '../../../services'
 
 function Contacts() {
     const [contacts, setContacts] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
-    
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -37,14 +38,16 @@ function Contacts() {
                     </tr>
                 </thead>
                 <tbody>
-                    {contacts.length > 0 ? contacts.filter((item)=> {
-                        return searchTerm.toLowerCase() === ''? item : item.sophong.toLowerCase().includes(searchTerm)
+                    {contacts.length > 0 ? contacts.filter((item) => {
+                        return searchTerm.toLowerCase() === '' ? item : item.sophong.toLowerCase().includes(searchTerm)
                     }).map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
                             <td>{item.name}</td>
                             <td>{item.sophong}</td>
-                            <td>{item.mess}</td>
+                            <td>
+                                <ReactQuill value={item.mess} readOnly={true} theme="bubble" />
+                            </td>
                             <td>{item.ngay}</td>
                             <td>
                                 <i onClick={() => deleteContact(item._id)} className="fa-solid fa-trash btn-delete"></i>

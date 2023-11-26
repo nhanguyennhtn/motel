@@ -9,6 +9,7 @@ function Bills() {
 
     useEffect(() => {
         fetchData()
+        
     }, [])
 
     const fetchData = async () => {
@@ -50,7 +51,6 @@ function Bills() {
             setCurrentPage(currentPage - 1)
         }
     }
-
     return (
         <div className='read'>
             <input id='search' onChange={e => setSearchTerm(e.target.value)} placeholder="Tìm kiếm theo tên..." />
@@ -59,7 +59,6 @@ function Bills() {
                     <tr>
                         <th>STT</th>
                         <th>fullname</th>
-                        <th>name</th>
                         <th>email</th>
                         <th>Số Phòng</th>
                         <th>giá</th>
@@ -74,17 +73,16 @@ function Bills() {
                         <tr key={item._id}>
                             <td>{++index}</td>
                             <td>{item.fullname}</td>
-                            <td>
-                                {item.name}
-                            </td>
                             <td>{item.email}</td>
                             <td>{item.sophong}</td>
-                            <td>{item.gia}</td>
+                            <td>{Intl.NumberFormat('vi-VN').format(item.gia)} vnđ</td>
                             <td>{item.ngay}</td>
                             <td>
                                 <i onClick={() => deleteBill(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
+
                         </tr>
+
                     ) :
                         <tr>
                             <td colSpan='8'>Không có dữ liệu</td>

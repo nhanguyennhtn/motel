@@ -48,7 +48,7 @@ export default function Read() {
                             </td>
                             <td>{item.kichthuoc}</td>
                             <td><ReactQuill value={item.mota} readOnly={true} theme="bubble" /></td>
-                            <td>{item.gia}</td>
+                            <td>{Intl.NumberFormat('vi-VN').format(item.gia)} vnđ</td>
                             <td>
                                 <Link to='/admin/room/update' state={item}>
                                     <i className="fa-solid fa-pen btn-edit"></i>

@@ -41,7 +41,7 @@ function Rooms() {
                                 <span>Kích thước:{item.kichthuoc}</span>
                             </div>
                             <div className="desc" >
-                                <span>{item.gia} đồng</span>
+                                <span>{Intl.NumberFormat('vi-VN').format(item.gia)} vnđ</span>
                                 | <button onClick={()=> handleSubmit(item)} >Hủy Đặt Phòng</button>
                             </div>
                         </div>

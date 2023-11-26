@@ -24,11 +24,12 @@
             }
 
             .desc {
-                text-align: center;
-                font-size: 28px;
-                line-height: 10x;
-                margin: 10px;
-
+                .ReactQuill {
+                    text-align: center;
+                    font-size: 28px;
+                    line-height: 10x;
+                    margin: 10px;
+                }
             }
 
             .price {

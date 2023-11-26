@@ -33,7 +33,7 @@ function Rooms({ isHome }) {
                                 <span>Kích thước:{item.kichthuoc}</span>
                             </div>
                             <div className="desc">
-                                <span>{item.gia} đồng</span>
+                                <span>{Intl.NumberFormat('vi-VN').format(item.gia)} vnđ</span>
                                 | <button><Link to={'/bill/create'} state={item}>Đặt Phòng</Link></button>
                             </div>
                         </div>
