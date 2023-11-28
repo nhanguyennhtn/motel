@@ -19,6 +19,9 @@ export const apiUserLogin = data =>
 export const apiUserReadOne = id =>
     service.get('/api/user/profile/' + id)
 
+export const apiUserUpdate = data =>
+    service.put(`/api/user/update/${data._id}`, data)
+
 //room
 
 export const apiRoomRead = () =>
@@ -44,7 +47,7 @@ export const apiContractCreate = data =>
     service.post('/api/contract/create', data)
 
 export const apiContractUpdate = data =>
-    service.put(`/api/contract/update/${data._id}`, data)
+    service.put(`/api/contract/update/${data.id}`, data)
 
 export const apiContractDelete = id =>
     service.delete('/api/contract/delete/' + id)

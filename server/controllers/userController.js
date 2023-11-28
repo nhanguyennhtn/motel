@@ -89,7 +89,24 @@ const userController = {
             })
             .catch(next)
     },
+    handleUpdateCard: (req, res, next) => {
+        const _id = req.params.id
 
+        userModel.updateOne({ _id }, { sodu: req.body.sodu })
+            .then(() => {
+                userModel.findOne({ username: req.body.username })
+                    .then(user => {
+                        const userInfo = user.toObject()
+                        delete userInfo.password
+                        return res.status(200).json({ status: true, userInfo })
+                    })
+                    .catch(next)
+            })
+            .catch((e) => {
+                console.log(e);
+            })
+        // console.log(user);
+    },
     handleUpdate: (req, res, next) => {
         const _id = req.params.id
         const { fullname, username, password } = req.body

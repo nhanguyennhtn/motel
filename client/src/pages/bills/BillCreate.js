@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
-import { apiRoomUpdate, apiBillCreate } from '../../services'
+import { apiRoomUpdate, apiBillCreate, apiUserUpdate } from '../../services'
 
 function Rooms() {
     const room = useLocation().state
@@ -12,12 +12,25 @@ function Rooms() {
     async function test() {
         try {
             if (room && room.sophong) {
-                await apiRoomUpdate({ ...room, isOrdered: true })
-                const data = { fullname: userInfo.fullname, username: userInfo.username, email: userInfo.email, sophong: room.sophong && room.sophong, gia: room.gia, ngay: today.toLocaleDateString("vi-VN", options) }
-                await apiBillCreate(data)
-                alert('Thanh toán thành công')
-                window.location.href = '/'
+                if (userInfo.sodu >= room.gia) {
+                    await apiRoomUpdate({ ...room, isOrdered: true })
+                    const data = { fullname: userInfo.fullname, username: userInfo.username, email: userInfo.email, sophong: room.sophong && room.sophong, gia: room.gia, ngay: today.toLocaleDateString("vi-VN", options) }
+                    await apiBillCreate(data)
+                    const res = await apiUserUpdate({ ...userInfo, sodu: userInfo.sodu - room.gia })
+                    if (res && res.status === true) {
+                        localStorage.setItem('isLoggedIn', res.status)
+                        localStorage.setItem('userInfo', JSON.stringify(res.userInfo))
+                        window.location.href = '/'
+                    }
+                    alert('Thanh toán thành công')
+                    window.location.href = '/'
+                } else {
+                    window.confirm('Số dư của bạn không đủ để đặt phòng, vui lòng nạp thêm tiền')
+                    window.location.href = '/account-balance'
+                }
             }
+
+
         } catch (e) {
         }
     }
@@ -39,7 +52,7 @@ function Rooms() {
                         Số Phòng: {room.sophong ? room.sophong : ""}
                     </div>
                     <div className='conent-bill'>
-                        Giá Phòng: {room.gia} đồng
+                        Giá Phòng: {Intl.NumberFormat('vi-VN').format(room.gia)} đồng
                     </div>
                     <div className='conent-bill'>
                         Ngày lập: {ngay}

@@ -36,6 +36,9 @@ export default function ProfilePage() {
                         <div className='user-name'>
                             Họ và Tên: {userInfo.fullname}
                         </div>
+                        <div className='user-name'>
+                            Số dư sử dụng: {Intl.NumberFormat('vi-VN').format(userInfo.sodu)} vnđ
+                        </div>
                         <div className='user-account'>
                             Tên tài Khoản: {userInfo.username}
                         </div>

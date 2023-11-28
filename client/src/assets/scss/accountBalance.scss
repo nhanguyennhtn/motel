@@ -1,0 +1,51 @@
+.readed {
+    width: 500px;
+    background: $second-color;
+    padding: 40px;
+    justify-items: center;
+
+    h2 {
+        color: $black-color;
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .contain-item {
+        display: flex;
+        input {
+            display: block;
+            margin: 15px 0;
+            border: 2px solid $black-color;
+            padding: 0 5px ;
+            transition: .5s;
+            font-size: 20px;
+            border-radius: 4px;
+            width: 100%;
+
+            &:focus {
+                border: 2px solid $primary-color;
+            }
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        button {
+            padding: 2px 5px;
+            background: $primary-color;
+            color: $white-color;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            height: 80%;
+            margin: 20px 4px ;
+            cursor: pointer;
+
+            &:hover {
+                opacity: .8;
+                transition: .5s;
+            }
+        }
+    }
+}

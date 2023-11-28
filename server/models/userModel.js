@@ -7,6 +7,7 @@ const User = new Schema({
     fullname: { type: String, minlength: 1, maxlength: 50 },
     username: { type: String, unique: true },
     password: { type: String, minlength: 6 },
+    sodu: {type: Number, default: 0},
     email: { type: String},
     role: { type: Number }
 
